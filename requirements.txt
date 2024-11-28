@@ -1,0 +1,6 @@
+cplex >=20.1
+docplex>=2.23
+pygltflib >=1.16
+matplotlib >=3.5
+dwave-ocean-sdk >=5.0
+qiskit-optimization >=0.5
