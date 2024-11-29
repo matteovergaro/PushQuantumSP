@@ -63,11 +63,11 @@ from plotting.sp_plot import SPPlot
 
 params = {"lidar_density": 0.1, "street_point_density": 0.1}
 data = SPData().create_problem_from_glb_file(**params)
-SPPlot(data).plot_problem().show()
+plt = SPPlot(data).plot_problem()
+plt.show()
 
 cplex_model = SPCplex(data)
 answer = cplex_model.solve()
-print(f"solution: {answer['solution']}")
 
 evaluation = SPEvaluation(data, answer["solution"])
 print(f"solution clean: {evaluation.solution}")
@@ -77,10 +77,10 @@ for constraint, violations in evaluation.check_solution().items():
     if len(violations) > 0:
         print(f"constraint {constraint} was violated {len(violations)} times")
 
-plt = SPPlot(data, evaluation).plot_solution(hide_never_covered=True)
+plt = SPPlot(data, evaluation).plot_solution(hide_never_covered = True)
 plt.show()
 ```
 
 ## Additional Examples
 
-Additional examples for all models and configurations are available in the root folder.
+The above provided example can be found in example_cplex_glb.py. There are two other examples: example_cplex_generator.py uses a simple toy problem and solves them with cplex and example_qubo_generator.py creates a simple toy problem and solves it with simulated annealing.

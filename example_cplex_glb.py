@@ -17,7 +17,7 @@ print(f"solution clean: {evaluation.solution}")
 print(f"objective = {evaluation.get_objective()}")
 for constraint, violations in evaluation.check_solution().items():
     if len(violations) > 0:
-        print(f"contraint {constraint} was violated {len(violations)} times")
+        print(f"constraint {constraint} was violated {len(violations)} times")
 
 plt = SPPlot(data, evaluation).plot_solution(hide_never_covered = True)
 plt.show()
